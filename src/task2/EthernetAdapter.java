@@ -37,6 +37,22 @@ public class EthernetAdapter extends Device {
 
     @Override
     public String toString() {
-        return super.toString()+ ", speed="+speed+", MAC="+mac;
+        return super.toString() + ", speed=" + speed + ", MAC=" + mac;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        EthernetAdapter that = (EthernetAdapter) o;
+        return this.mac.equals(that.mac);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += 47 * super.hashCode() + mac.hashCode();
+        return hash;
     }
 }

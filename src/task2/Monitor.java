@@ -37,6 +37,21 @@ public class Monitor extends Device {
 
     @Override
     public String toString() {
-        return super.toString()+ ", X="+resolutionX+", Y="+resolutionY;
+        return super.toString() + ", X=" + resolutionX + ", Y=" + resolutionY;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Monitor monitor = (Monitor) o;
+        return super.equals(o) && this.getResolutionY() == monitor.getResolutionY() && this.getResolutionX() == monitor.getResolutionX();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return super.hashCode() + this.getResolutionX() * 23 + this.getResolutionY() * 12;
     }
 }

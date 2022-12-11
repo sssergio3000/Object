@@ -13,7 +13,8 @@ public class Device {
         this.price = price;
         this.serialNumber = serialNumber;
     }
-    public Device(){
+
+    public Device() {
 
     }
 
@@ -43,7 +44,7 @@ public class Device {
 
     @Override
     public String toString() {
-        return "manufacturer ="+manufacturer+", price="+price+", serialNumber="+serialNumber;
+        return "manufacturer =" + manufacturer + ", price=" + price + ", serialNumber=" + serialNumber;
     }
 
     @Override
@@ -51,13 +52,14 @@ public class Device {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Device device = (Device) o;
-      //  if (this.manufacturer.equals(device.manufacturer)&&)
-        return Float.compare(device.price, price) == 0 && manufacturer.equals(device.manufacturer) && serialNumber.equals(device.serialNumber);
+
+        return this.getManufacturer().equals(device.getManufacturer()) && this.getSerialNumber().equals(device.getSerialNumber()) && this.getPrice() == device.getPrice();
     }
+
+//
 
     @Override
     public int hashCode() {
-
         return Objects.hash(manufacturer, price, serialNumber);
     }
 }
